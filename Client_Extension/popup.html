@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        :root{
+            /* ING-style palette (orange + white) */
+            --panel: #ffffff;           /* popup panel */
+            --panel-border: #e6e6e6;    /* subtle border */
+            --accent: #ff6600;          /* ING orange */
+            --accent-2: #ff7a1a;
+            --text: #0b1220;           /* dark text */
+            --muted: #6b7280;
+            --bubble-user: var(--accent);
+            --bubble-bot: #f3f4f6;      /* light bot bubble */
+        }
+
+        /* Popup-friendly base */
+        html, body { height: auto; margin: 0; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; background: transparent; color: #e6eef8; }
+        body { padding: 0; }
+
+        /* Compact container for browser popup - ING style */
+        .container { width: 320px; max-width: 320px; max-height: 560px; background: var(--panel); color: var(--text); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; border: 1px solid var(--panel-border); box-shadow: 0 8px 20px rgba(11,20,40,0.06); }
+
+        header { display:flex; align-items:center; justify-content:space-between; padding:12px 14px; background:transparent; color: var(--text); font-weight:700; font-size:15px; border-bottom:1px solid var(--panel-border); }
+        .brand { display:flex; align-items:center; gap:10px; }
+        .logo { width:32px; height:32px; flex:0 0 32px; border-radius:6px; background:var(--accent); display:inline-flex; align-items:center; justify-content:center; }
+        .logo svg { width:18px; height:18px; color: #fff; }
+        .logo-img { width:32px; height:32px; object-fit:cover; border-radius:6px; display:inline-block; }
+        .title { font-weight:700; font-size:14px; }
+        header .meta { display:flex; align-items:center; gap:8px; }
+        header .dot { width: 10px; height: 10px; background: var(--accent); border-radius: 50%; box-shadow: none; }
+
+        #chatOutput { flex: 1; padding: 12px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; background: transparent; min-height: 120px; }
+
+        .bubble { max-width: 84%; padding: 10px 12px; border-radius: 10px; font-size: 13px; line-height: 1.4; word-wrap: break-word; }
+        .user { align-self: flex-end; background: var(--bubble-user); color: #fff; border-radius: 12px; }
+        .bot { align-self: flex-start; background: var(--bubble-bot); border: 1px solid var(--panel-border); color: var(--text); }
+
+        .input-area { display: flex; gap: 8px; padding: 10px; background: transparent; border-top: 1px solid var(--panel-border); }
+        input { flex: 1; padding: 10px 12px; border-radius: 8px; border: 1px solid var(--panel-border); background: #fff; color: var(--text); font-size: 14px; outline: none; }
+        input::placeholder { color: var(--muted); }
+        button { background: linear-gradient(180deg,var(--accent),var(--accent-2)); color: white; border: none; padding: 8px 14px; border-radius: 8px; cursor: pointer; font-weight:700; box-shadow: none; }
+        button:active { transform: translateY(1px); }
+
+        .small { font-size: 12px; color: var(--muted); margin-left: 8px; }
+
+        .small { font-size: 12px; color: var(--muted); margin-left: 8px; }
+
+        /* Ensure light scheme matches ING look (default) */
+        @media (prefers-color-scheme: light) {
+            :root{ --panel: #ffffff; --panel-border: #e6e6e6; --accent: #ff6600; --accent-2: #ff7a1a; --muted: #6b7280; --text: #0b1220; }
+            body { color: var(--text); }
+            .container { box-shadow: 0 8px 20px rgba(11,20,40,0.04); }
+            .bot { background: var(--bubble-bot); border: 1px solid var(--panel-border); color: var(--text); }
+            input { background: #fff; border: 1px solid var(--panel-border); color: var(--text); }
+        }
+
+        /* Selection: subtle orange tint for ING brand */
+        ::selection, ::-moz-selection { color: #000; background: rgba(255,102,0,0.12); }
+        .container ::selection, .container ::-moz-selection { color: #000; background: rgba(255,102,0,0.12); }
+        .bubble::selection, .bubble::-moz-selection { color: #000; background: rgba(255,120,20,0.12); }
+        input::selection { color: #000; background: rgba(255,102,0,0.12); }
+
+        /* Scrollbar tweaks */
+        #chatOutput::-webkit-scrollbar { width: 8px; }
+        #chatOutput::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.06); border-radius: 6px; }
+
+    </style>
+</head>
+<body>
+    <div class="container" role="dialog" aria-label="Darija AI Translator">
+        <header>
+            <div class="brand">
+            <img src="icon128.png" style="width: 32px; height: 32px; border-radius: 6px;">
+            <span class="title">Tarmliy</span>
+            </div>
+            <div class="meta"><img src="icon128.png" class="logo-img" alt="logo" onerror="this.style.display='none'"><span class="small">— popup</span></div>
+        </header>
+        <div id="chatOutput">
+            <div class="bubble bot">Sélectionnez du texte sur une page ou écrivez ici !</div>
+        </div>
+        <form id="chatForm" class="input-area">
+            <input type="text" id="userMessage" placeholder="Texte en anglais..." required>
+            <button type="submit">Traduire</button>
+        </form>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>
