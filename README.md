@@ -5,7 +5,7 @@
 Ce projet est une solution complète de traduction pour la **Darija marocaine**. Il permet de traduire du contenu textuel via une interface web dédiée ou directement depuis votre navigateur grâce à une extension intégrée.
 
 ## 🎥 Démonstration
-
+[!IMPORTANT] La vidéo de présentation est en cours de préparation. Elle sera disponible dans les prochaines 24 heures.
 Retrouvez une explication complète du fonctionnement du projet et une démonstration des fonctionnalités dans la vidéo suivante :
 👉 **[Lien vers la vidéo de présentation (Google Drive)](https://www.google.com/search?q=TON_LIEN_DRIVE_ICI)**
 
