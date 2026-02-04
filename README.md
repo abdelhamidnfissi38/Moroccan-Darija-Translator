@@ -9,9 +9,8 @@ Ce projet est une solution complète de traduction pour la **Darija marocaine**.
 Elle présente le fonctionnement général du projet et une démonstration des fonctionnalités.
 Cette version ne contient pas d’audio en raison d’un problème de micro.
 Une version finale avec audio sera publiée dès que le problème sera résolu.
-👉 **[Lien vers la vidéo de présentation (Google Drive)]([https://www.google.com/search?q=TON_LIEN_DRIVE_ICI](https://drive.google.com/file/d/1OspJ_nZlEXb5F6nkse9ujWTipWeJClC3/view?usp=drive_link))**
+👉 **[Lien vers la vidéo de présentation (Google Drive)](https://drive.google.com/file/d/1OspJ_nZlEXb5F6nkse9ujWTipWeJClC3/view?usp=drive_link)**
 
----
 
 ## 📁 Structure du Projet
 
